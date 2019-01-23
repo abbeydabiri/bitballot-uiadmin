@@ -1,0 +1,20 @@
+
+Records
+    -Profiles
+    -Documents
+    -Settings
+
+Ballot
+    -Proposals
+    -Positions
+    -Candidates
+    -Voters
+
+Reports
+    -Score Board
+    -Voters Roll
+
+Security
+    -User
+
+Logout
