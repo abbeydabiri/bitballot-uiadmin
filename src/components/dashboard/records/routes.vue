@@ -5,8 +5,8 @@
 <script type="text/javascript">
 
   import profilesRoutes from "@/components/dashboard/records/profiles/routes.vue"
-  import accountsRoutes from "@/components/dashboard/records/accounts/routes.vue"
-  import journalRoutes from "@/components/dashboard/records/journal/routes.vue"
+  import settingsRoutes from "@/components/dashboard/records/settings/routes.vue"
+  import documentsRoutes from "@/components/dashboard/records/documents/routes.vue"
   
 
   export default {
@@ -17,14 +17,14 @@
           children: profilesRoutes.children
         },
         {
-          path: 'accounts',
-          component: accountsRoutes,
-          children: accountsRoutes.children
+          path: 'settings',
+          component: settingsRoutes,
+          children: settingsRoutes.children
         },
         {
-          path: 'journal',
-          component: journalRoutes,
-          children: journalRoutes.children
+          path: 'documents',
+          component: documentsRoutes,
+          children: documentsRoutes.children
         },
     ],
   }

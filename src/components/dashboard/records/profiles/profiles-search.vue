@@ -41,6 +41,7 @@
         </div>
       </div>
 
+
       <table-display>
         <template slot="tableHead">
           <tr class="tl bg-white black f7">
@@ -51,25 +52,25 @@
               <input type="text" v-model="search.filter.fullname" placeholder="Fullname" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
             </td>
             <td class="">
-              <input type="text" v-model="search.filter.phone" placeholder="Phone" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+              <input type="text" v-model="search.filter.mobile" placeholder="Mobile" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
             </td>
             <td class="">
-              <input type="text" v-model="search.filter.station" placeholder="Station" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+              <input type="text" v-model="search.filter.email" placeholder="Email" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+            </td>
+            <td class="">
+              <input type="text" v-model="search.filter.city" placeholder="City" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
             </td>
             <td class="">
               <input type="text" v-model="search.filter.state" placeholder="State" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
-            </td>
-            <td class="">
-              <input type="text" v-model="search.filter.workstatus" placeholder="Full/Part Time" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
             </td>
           </tr>
           <tr class="tl bg-black white">
             <td class=""></td>
             <td class="pa2 ">Fullname</td>
-            <td class="pa2 ">Phone</td>
-            <td class="pa2 ">Station</td>
+            <td class="pa2 ">Mobile</td>
+            <td class="pa2 ">Email</td>
+            <td class="pa2 ">City</td>
             <td class="pa2 ">State</td>
-            <td class="pa2 ">Full/Part Time</td>
           </tr>
         </template>
         <template slot="tableBody" v-if="recordList.length > 0">

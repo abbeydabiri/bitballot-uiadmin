@@ -15,6 +15,7 @@ import dashboardComponent from "@/components/dashboard/home"
 
 
 import recordsRoutes from "@/components/dashboard/records/routes.vue"
+import ballotsRoutes from "@/components/dashboard/ballots/routes.vue"
 // import reportsRoutes from "@/components/dashboard/reports/routes.vue"
 // import supplychainRoutes from "@/components/dashboard/supplychain/routes.vue"
 // import pointofsaleRoutes from "@/components/dashboard/pointofsale/routes.vue"
@@ -37,11 +38,9 @@ const router =  new Router({
 
       { path: '/admin', component: menuBasedComponent,
         children: [
-
           { path: '', component: dashboardComponent, name: 'dashboard'},
-          
-          { path: 'records', component: recordsRoutes, children: recordsRoutes.children }, 
-          
+          { path: 'records', component: recordsRoutes, children: recordsRoutes.children },
+          { path: 'ballots', component: ballotsRoutes, children: ballotsRoutes.children },
           { path: 'security', component: securityRoutes, children: securityRoutes.children },
       ] }
 

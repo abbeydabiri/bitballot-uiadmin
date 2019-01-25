@@ -19,21 +19,21 @@
             <span class="oi" data-glyph="person"></span>
             <label class="dn dib-ns">Personal</label>
           </span>
-          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.occupationClass" @click="toggleTab('occupation')">
+          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.documentationClass" @click="toggleTab('documentation')">
             <span class="oi" data-glyph="briefcase"></span>
-            <label class="dn dib-ns">Academic</label>
+            <label class="dn dib-ns">Documentation</label>
           </span>
-          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.ecclesiaClass" @click="toggleTab('ecclesia')">
-            <span class="oi" data-glyph="medical-cross"></span>
-            <label class="dn dib-ns">Financial</label>
+          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.proposalsClass" @click="toggleTab('proposals')">
+            <span class="oi" data-glyph="document"></span>
+            <label class="dn dib-ns">Proposals</label>
           </span>
-          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.designationClass" @click="toggleTab('designation')">
+          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.positionsClass" @click="toggleTab('positions')">
             <span class="oi" data-glyph="tag"></span>
-            <label class="dn dib-ns">Extra-curriculum</label>
+            <label class="dn dib-ns">Positions</label>
           </span>
-          <span class="w-20 tc pointer dim pa3 bl b--white-40 br4 br--right br--top " :class="tabProps.groupunitClass" @click="toggleTab('groupunit')">
-            <span class="oi" data-glyph="people"></span>
-            <label class="dn dib-ns">Groups</label>
+          <span class="w-20 tc pointer dim pa3 bl b--white-40 br4 br--right br--top " :class="tabProps.settingsClass" @click="toggleTab('settings')">
+            <span class="oi" data-glyph="cog"></span>
+            <label class="dn dib-ns">Settings</label>
           </span>
         </div>
       
@@ -47,12 +47,6 @@
                 </div>
 
                 <div class="fl w-70-l">
-
-                  <div class="fl w-100 w-25-l pa1">
-                    <label class="db fw4 lh-copy f6 black"> Tag No: {{record.Title}} </label>
-                  </div>
-
-                  <div class="fl w-100"></div>
                   
                   <div class="fl mv2 w-100 w-25-l pa1">
                     <label class="db fw4 lh-copy f6 black"> Title:</label>
@@ -110,107 +104,60 @@
                       <label class="db fw4 lh-copy f6 black">Home Address</label>
                       <div class="pa2 ba b--white-50 br2 bg-near-white w-100 h3 overflow-scroll">&nbsp;{{record.Address}}</div>
                     </div>
-                </div>
+                  </div>
+
+
+                  <div class="fl w-100 bt b--near-white"></div>
+                    <div class="fl mv2 w-100 w-25-l pa1">
+                      <label class="db fw4 lh-copy f6 black">Mobile</label>
+                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Mobile}}</div>
+                    </div>
+
+                    <div class="fl mv2 w-100 w-75-l pa1">
+                      <label class="db fw4 lh-copy f6 black">Email Address</label>
+                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Email}}</div>
+                    </div>
+
+                    <div class="fl mv2 w-40 pa1">
+                      <label class="db fw4 lh-copy f6 black">Street</label>
+                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Street}}</div>
+                    </div>
+
+                    <div class="fl mv2 w-20 pa1">
+                      <label class="db fw4 lh-copy f6 black">City</label>
+                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.City}}</div>
+                    </div>
+
+                    <div class="fl mv2 w-20 pa1">
+                      <label class="db fw4 lh-copy f6 black">State</label>
+                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.State}}</div>
+                    </div>
+                    
+                    <div class="fl mv2 w-20 pa1">
+                      <label class="db fw4 lh-copy f6 black">Country</label>
+                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Country}}</div>
+                    </div>
+                  </div>
               
 
           </div>
 
-          <div class="pa2" v-if="tabProps.occupationShow">
-              <p class="w-100 cf  gray tracked"> Occupation</p>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black">Employment Status </label>
-                <div class="pl1 pv1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.EmploymentStatus}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-75-l pa1">
-                <label class="db fw4 lh-copy f6 black">Profession</label>
-                <div class="pl1 pv1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Profession}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black">Employer Name </label>
-                <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.EmployerName}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-75-l pa1">
-                <label class="db fw4 lh-copy f6 black">Employer Address </label>
-                <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.EmployerAddress}}</div>
-              </div>
+          
+          <div class="pa2" v-if="tabProps.documentationsShow">
+              <p class="w-100 cf  gray tracked"> Documentations</p>
           </div>
 
-          <div class="pa2" v-if="tabProps.ecclesiaShow">
-              <p class="w-100 cf  gray tracked"> Ecclesia</p>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black"> WOFBI Status</label>
-                <div class="pl1 pv1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.WOFBIStatus}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black"> WSF Status</label>
-                <div class="pl1 pv1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.WSFStatus}}</div>
-              </div>
-
-              <div class="fl w-100"></div>
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black"> Date of New Birth: </label>
-                <div class="pa1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.DobNewBirth}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black">Date of Holy Ghost Baptism : </label>
-                <div class="pa1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.DateOfBaptism}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black"> Date Joined LFC: </label>
-                <div class="pa1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.DateJoinedLfc}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black">Ordination Year : </label>
-                <div class="pa1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.OrdinationYear}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black">Province </label>
-                <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Province}}</div>
-              </div>
-            
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black">District </label>
-                <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.District}}</div>
-              </div>
-
-              <div class="fl mv2 w-100 w-25-l pa1">
-                <label class="db fw4 lh-copy f6 black">Zone </label>
-                <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Zone}}</div>
-              </div>
-            
+          <div class="pa2" v-if="tabProps.proposalsShow">
+              <p class="w-100 cf  gray tracked"> Proposals</p>
           </div>
 
-          <div class="pa2" v-if="tabProps.designationShow">
-            <p class="w-100 cf  gray tracked"> Designation</p>
+          <div class="pa2" v-if="tabProps.positionsShow">
+              <p class="w-100 cf  gray tracked"> Positions</p>
+          </div>        
 
-            <div class="mt3 mt0 fl-ns w-100 w-50-ns pa1">
-              <label class="db fw4 lh-copy f6 black"> Designation</label>
-              <div class="pl1 pv1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Designation}}</div>
-            </div>
-            <div class="fr-ns mt3 w-100 w-50-ns pa1">
-              <label class="db fw4 lh-copy f6 black"> Designation History</label>
-              <div class="pl1 pv1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.DesignationHistory}}</div>
-            </div>
+          <div class="pa2" v-if="tabProps.settingsShow">
+              <p class="w-100 cf  gray tracked"> Settings</p>
           </div>
-
-          <div class="pa2" v-if="tabProps.groupunitShow">
-            <p class="w-100 cf  gray tracked"> Group Unit</p>
-
-            <div class="fl mv2 w-100 w-25-l pa1">
-              <label class="db fw4 lh-copy f6 black"> Service Groups / Units</label>
-              <div class="pl1 pv1 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.ServiceGroup}}</div>
-            </div>
-          </div>  
 
 
           <div class="w-100 mt3">

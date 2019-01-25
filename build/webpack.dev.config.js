@@ -13,7 +13,7 @@ module.exports = merge(base, {
     })
   ],
   devServer: {
-    port: 9090,
+    port: 9191,
     host: "0.0.0.0",
     overlay: true,
     disableHostCheck: true,
