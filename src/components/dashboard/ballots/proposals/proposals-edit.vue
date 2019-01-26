@@ -12,9 +12,9 @@
 		<notify class="mv2" :notifications="notifications"></notify>
 
 		<div v-if="isFound" class="pa2 bg-light-gray br4 cf">
-		  
+		
 			<div class="mt3 pa2 w-100">
-				<label class="db fw4 lh-copy f7 black">Select Workflow </label>
+				<label class="db fw4 lh-copy f7 black">Select Status </label>
 				<select class="pa1 ba b--silver br2 bg-white  " v-model="record.Workflow">
 					<option></option>
 					<option>enabled</option>
@@ -23,49 +23,30 @@
 			</div>
 	
 			<div class="w-100">
-				<div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-					<label class="db fw4 lh-copy f6 black"> Code</label>
-					<input class="pa2 ba b--silver br2 bg-white w-100 " type="text" v-model="record.Code">
-				</div>
-				<div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
+				<div class="fl pa2 mt3 mt0-ns w-100">
 					<label class="db fw4 lh-copy f6 black"> Title</label>
 					<input class="pa2 ba b--silver br2 bg-white w-100 " type="text" v-model="record.Title">
 				</div>
 			</div>
 
-
-			<div class="w-100">
-				<div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-					<label class=" fw4 lh-copy f6 black"> Owner</label>
-					<label class=" fw4 lh-copy f7 red fr" @click="profileList=[],record.Owner='',record.OwnerID=0">- clear</label>
-					<input class="pa2 ba b--silver br2 bg-white w-100 " @keyup="searchOwner" type="text" v-model="record.Owner">
-					<div class="relative w-100">
-						<small>
-							<ul class="bg-white absolute w-100 pa0 br2 br--bottom mt0 list">
-								<li class="pa2 black bt b--near-white" @click="record.OwnerID = owner.ID, record.Owner=owner.Fullname, ownerList = []" v-for="(owner, index) in ownerList" :key="index">
-									<span class="f7">#{{index+1}}</span> {{owner.Fullname}}
-								</li>
-							</ul>
-						</small>
-					</div>
-				</div>
-
-				<div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-					<label class=" fw4 lh-copy f6 black"> Partner</label>
-					<label class=" fw4 lh-copy f7 red fr" @click="profileList=[],record.Partner='',record.PartnerID=0">- clear</label>
-					<input class="pa2 ba b--silver br2 bg-white w-100 " @keyup="searchPartner" type="text" v-model="record.Partner">
-					<div class="relative w-100">
-						<small>
-							<ul class="bg-white absolute w-100 pa0 br2 br--bottom mt0 list">
-								<li class="pa2 black bt b--near-white" @click="record.PartnerID = partner.ID, record.Partner=partner.Fullname, partnerList = []" v-for="(partner, index) in partnerList" :key="index">
-									<span class="f7">#{{index+1}}</span> {{partner.Fullname}}
-								</li>
-							</ul>
-						</small>
-					</div>
-				</div>
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> Open Date</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="date" v-model="record.OpenDateDay">
 			</div>
-		
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> Open Time</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="time" v-model="record.OpenDateTime">
+			</div>
+
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> End Date</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="date" v-model="record.EndDateDay">
+			</div>
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> End Time</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="time" v-model="record.EndDateTime">
+			</div>
+	
 			<div class="fl pa2 mt3 mt0-ns w-100">
 				<label class="db fw4 lh-copy f6 black"> Description</label>
 				<textarea class="pa2 ba b--silver br2 bg-white w-100" v-model="record.Description"></textarea>
@@ -73,9 +54,9 @@
 
 
 			<div class="fl w-100 mt3">
-			<div v-if="isSave" class="fr ph3 pv2 br4 bg-green grow-ns pointer f6 white tc no-underline"  @click="save" >
-				Submit
-			</div>
+				<div v-if="isSave" class="fr ph3 pv2 br4 bg-green grow-ns pointer f6 white tc no-underline"  @click="save" >
+					Submit
+				</div>
 			</div>  
 		</div>
 		<div v-else>

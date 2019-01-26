@@ -12,46 +12,51 @@
         <notify class="mv2" :notifications="notifications"></notify>
 
         <div v-if="isFound" class="pa2 bg-light-gray br4 cf w-100">
-                
+            
             <div class="mt3 pa2 w-100">
-                <label class="db fw4 lh-copy f7 black">Select Workflow </label>
-                <select class="pa1 ba b--silver br2 bg-white  " v-model="record.Workflow">
-                    <option></option>
-                    <option>enabled</option>
-                    <option>disabled</option>
-                </select>
-            </div>
-    
-            <div class="w-100">
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Code</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Code">
-                </div>
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Title</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Title">
-                </div>
-            </div>
+				<label class="db fw4 lh-copy f7 black">Select Status </label>
+				<select class="pa1 ba b--silver br2 bg-white  " disabled="disabled" v-model="record.Workflow">
+					<option></option>
+					<option>enabled</option>
+					<option>disabled</option>
+				</select>
+			</div>
+	
+			<div class="w-100">
+				<div class="fl pa2 mt3 mt0-ns w-100">
+					<label class="db fw4 lh-copy f6 black"> Title</label>
+					<input class="pa2 ba b--silver br2 bg-white w-100 " type="text" disabled="disabled" v-model="record.Title">
+				</div>
+			</div>
 
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> Open Date</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="date" disabled="disabled" v-model="record.OpenDateDay">
+			</div>
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> Open Time</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="time" disabled="disabled" v-model="record.OpenDateTime">
+			</div>
 
-            <div class="w-100">
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Owner</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Owner">
-                </div>
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Partner</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Partner">
-                </div>
-            </div>
-
-            <div class="fl pa2 mt3 mt0-ns w-100">
-                <label class="db fw4 lh-copy f6 black"> Description</label>
-                <textarea class="pa2 ba b--silver br2 bg-white w-100"  disabled="disabled" v-model="record.Description"></textarea>
-            </div>
-
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> End Date</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="date" disabled="disabled" v-model="record.EndDateDay">
+			</div>
+			<div class="fl pa2 mt3 mt0-ns w-50 w-25-ns">
+				<label class="db fw4 lh-copy f6 black"> End Time</label>
+				<input class="pa1-l pa2 ba b--silver br2 bg-white w-100 " type="time" disabled="disabled" v-model="record.EndDateTime">
+			</div>
+	
+			<div class="fl pa2 mt3 mt0-ns w-100">
+				<label class="db fw4 lh-copy f6 black"> Description</label>
+				<textarea class="pa2 ba b--silver br2 bg-white w-100" disabled="disabled" v-model="record.Description"></textarea>
+			</div>
 
             <div class="fl w-100 mt3">
+				<div class="fl ph3 pv2 br4 bg-black grow-ns pointer f6 white tc no-underline"  @click="sendToBlockchain" >
+					Send to Blockchain
+				</div>
+				
                 <router-link :to="{name:'proposals-edit',params:{id:record.ID}}" class="fr ph3 pv2 br4 bg-green grow-ns pointer f6 white tc no-underline" >
                     Edit
                 </router-link>
@@ -92,7 +97,10 @@
                     app.isFound = true
                 }
                 }).catch((e) => { console.log(e) })
-            },
+			},
+			sendToBlockchain () {
+				console.log('Send to Blockchain');
+			}			
 		}
 	}
 </script>

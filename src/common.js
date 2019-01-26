@@ -44,6 +44,13 @@ export function dayofWeek() {
   return weekday[d.getDay()]
 }
 
+export function dateTimeConvert(dateTime) {
+  if (dateTime !== "") {
+    dateTime = new Date(dateTime).toDateString() + ' ' + humanTime(new Date(dateTime.substring(0, 19)).toTimeString().substring(0, 8))
+  }
+  return dateTime
+}
+
 export function humanTime(time) {
   if (time == undefined) {
     return
@@ -137,6 +144,34 @@ export function uploadFile(event, app, field) {
     app.notifications.push({
       Code: 0,
       Message: "Image Error:" + error
+    })
+  };
+}
+
+
+export function uploadDocument(event, app) {
+  var reader = new FileReader();
+  var selectedFile = event.target.files[0];
+  event.target.value = '';
+  reader.readAsDataURL(selectedFile);
+  reader.onload = function () {
+    if (selectedFile.size > 10240000) {
+      app.notifications.push({
+        Code: 0,
+        Message: "Document must be less than 10MB"
+      })
+    } else {
+      app.record.Filepath = reader.result;
+      app.record.Filesize = selectedFile.size;
+      app.record.Filename = selectedFile.name;
+      app.record.Filetype = selectedFile.type;
+      console.log(app.record)
+    }
+  };
+  reader.onerror = function (error) {
+    app.notifications.push({
+      Code: 0,
+      Message: "Document Error:" + error
     })
   };
 }

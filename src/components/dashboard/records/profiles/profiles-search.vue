@@ -44,9 +44,9 @@
 
       <table-display>
         <template slot="tableHead">
-          <tr class="tl bg-white black f7">
-            <td class="tc pt1">
-              <span @click="searchRecords" class="oi bg-green white b pa1 br2" data-glyph="magnifying-glass"></span>
+          <tr class="tl bg-black black f7">
+            <td class="tc">
+              	<span @click="searchRecords" class="oi bg-green white pv1 b db" data-glyph="magnifying-glass"></span>
             </td>
             <td class="">
               <input type="text" v-model="search.filter.fullname" placeholder="Fullname" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
@@ -75,17 +75,16 @@
         </template>
         <template slot="tableBody" v-if="recordList.length > 0">
           <tr class="stripe-dark" v-for="(profile, index) in recordList" :key="index">
-            <td class="">
-              <router-link data-glyph="eye" class="f7 oi br-pill bg-green hover-bg-dark-green ph1 pt1 near-white" :to="{name:'profiles-view',params:{id:profile.ID}}" >
-              </router-link>
+            <td class="tc">
+              <router-link data-glyph="eye" class="f7 oi br-pill bg-green hover-bg-dark-green ph1 pt1 near-white" :to="{name:'profiles-view',params:{id:profile.ID}}" > </router-link>
             </td>
             <td class=" pa2">
               <span class="f7">#{{index+1}}.</span> {{profile.Fullname}}
             </td>
-            <td class=" pa2 f7">{{profile.Phone}}</td>
-            <td class=" pa2 f7">{{profile.Station}}</td>
+            <td class=" pa2 f7">{{profile.Mobile}}</td>
+            <td class=" pa2 f7">{{profile.Email}}</td>
+            <td class=" pa2 f7">{{profile.City}}</td>
             <td class=" pa2 f7">{{profile.State}}</td>
-            <td class=" pa2 f7">{{profile.WorkStatus}}</td>
           </tr>
         </template>
       </table-display>
@@ -129,7 +128,7 @@
         this.isSearch = true
         this.recordList = []
         HTTP.post(this.url+'/search', this.search,{withCredentials: true}).then((response) => {
-          console.log(response.data.Body)
+          
           this.recordList = response.data.Body
         }).catch((e) => { console.log(e) })
       },

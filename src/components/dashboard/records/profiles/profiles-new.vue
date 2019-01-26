@@ -132,25 +132,23 @@
 				</div>
 
 				<div class="pa2" v-if="tabProps.documentationsShow">
-					<p class="w-100 cf gray tracked"> Documentations</p>
-
-					<div class="fl w-100 pa1 black">
-						
-					</div>
+					<p class="w-100 cf gray tracked"> Documentations: </p>
+					<small>save profile record first to view linked documentations</small>
 				</div>
 
 				<div class="pa2" v-if="tabProps.proposalsShow">
-					<p class="w-100 cf  gray tracked"> Proposals</p>
-
-					
+					<p class="w-100 cf  gray tracked"> Proposals: </p>
+					<small>save profile record first to view linked proposals</small>
 				</div>
 
 				<div class="pa2" v-if="tabProps.positionsShow">
-					<p class="w-100 cf  gray tracked"> Positions</p>
+					<p class="w-100 cf  gray tracked"> Positions: </p>
+					<small>save profile record first to view linked positions</small>
 				</div>        
 
 				<div class="pa2" v-if="tabProps.settingsShow">
-					<p class="w-100 cf  gray tracked"> Settings</p>
+					<p class="w-100 cf  gray tracked"> Settings: </p>
+					<small>save profile record first to view linked settings</small>
 				</div>
 
 			</div>

@@ -11,6 +11,11 @@
           <router-link :to="{name: 'dashboard'}">
             <img src="@/assets/logo.png" class="h2  absolute right-0  top-0" />
           </router-link>
+
+          <span class="right-1 absolute f7 tr">
+            <small>ETH:</small> <b>{{ether.balance}}</b> </br>
+            <small>{{ether.address}}</small>
+          </span>
       </nav>
       
     
@@ -38,23 +43,43 @@
 
 <!-- App specific objects  -->
 <script type="text/javascript">
+  import {HTTP} from '@/common';
   import loadingscreen from "@/components/loading"
   import menulist from "@/components/dashboard/menulist"
 
   export default {
     name: "menuBased",
     data() {return{
-      lShow:false,
-      slideOut:"dn",
+		lShow:false,
+		slideOut:"dn",
+		ether: { balance:0, address:"" },
+		setIntervalId:{},
     }},
     methods: {
-      toggleMenu() {
-        this.lShow = !this.lShow
-        document.getElementsByTagName("html")[0].classList.toggle('overflow-hidden');
-      }
+		toggleMenu() {
+			this.lShow = !this.lShow
+			document.getElementsByTagName("html")[0].classList.toggle('overflow-hidden');
+		},
+		checkBalance() {
+			const app = this;
+			HTTP.get('/api/eth/balance', {withCredentials: true}) .then((response) => {
+				if (response.data.Body !== null ) {
+					app.ether = response.data.Body
+					app.ether.address = app.ether.address.substring(0,8)+"....."+ app.ether.address.substring(app.ether.address.length-8,app.ether.address.length)
+				}
+			}) .catch((e) => { console.log(e) })
+		}
     },
     components: {
       menulist,loadingscreen
     },
+    created() {	
+		this.checkBalance()
+		this.setIntervalId = setInterval(this.checkBalance, 15000);
+    },
+    beforeDestroy(){
+		clearInterval(this.setIntervalId);
+    },
+
   }
 </script>

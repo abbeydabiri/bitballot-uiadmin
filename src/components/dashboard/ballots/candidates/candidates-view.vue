@@ -14,41 +14,37 @@
         <div v-if="isFound" class="pa2 bg-light-gray br4 cf w-100">
                 
             <div class="mt3 pa2 w-100">
-                <label class="db fw4 lh-copy f7 black">Select Workflow </label>
-                <select class="pa1 ba b--silver br2 bg-white  " v-model="record.Workflow">
-                    <option></option>
-                    <option>enabled</option>
-                    <option>disabled</option>
-                </select>
-            </div>
-    
-            <div class="w-100">
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Code</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Code">
-                </div>
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Title</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Title">
-                </div>
-            </div>
+				<label class="db fw4 lh-copy f7 black">Select Status </label>
+				<select class="pa1 ba b--silver br2 bg-white  " disabled="disabled" v-model="record.Workflow">
+					<option></option>
+					<option>pending</option>
+					<option>accredited</option>
+					<option>rejected</option>
+				</select>
+			</div>
 
+			<div class="w-100">
+				<div class="fl pa2 mt3 mt0-ns w-100 w-third-ns">
+					<label class=" fw4 lh-copy f6 black"> Candidate</label>
+					<input class="pa2 ba b--silver br2 bg-white w-100 " type="text" disabled="disabled" v-model="record.Candidate">
+				</div>
 
-            <div class="w-100">
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Owner</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Owner">
-                </div>
-                <div class="fl pa2 mt3 mt0-ns w-100 w-50-ns">
-                    <label class="db fw4 lh-copy f6 black"> Partner</label>
-                    <input class="pa2 ba b--silver br2 bg-white w-100 " disabled="disabled" type="text" v-model="record.Partner">
-                </div>
-            </div>
+                <div class="fl pa2 mt3 mt0-ns w-100 w-third-ns">
+					<label class=" fw4 lh-copy f6 black"> Position</label>
+					<input class="pa2 ba b--silver br2 bg-white w-100 " type="text" disabled="disabled" v-model="record.Position">
+				</div>
 
-            <div class="fl pa2 mt3 mt0-ns w-100">
-                <label class="db fw4 lh-copy f6 black"> Description</label>
-                <textarea class="pa2 ba b--silver br2 bg-white w-100"  disabled="disabled" v-model="record.Description"></textarea>
-            </div>
+                <div class="fl pa2 mt3 mt0-ns w-100 w-third-ns">
+					<label class=" fw4 lh-copy f6 black"> Proposal</label>
+					<input class="pa2 ba b--silver br2 bg-white w-100 " type="text" disabled="disabled" v-model="record.Proposal">
+				</div>
+
+			</div>
+	
+			<div class="fl pa2 mt3 mt0-ns w-100">
+				<label class="db fw4 lh-copy f6 black"> Description</label>
+				<textarea class="pa2 ba b--silver br2 bg-white w-100" disabled="disabled" v-model="record.Description"></textarea>
+			</div>
 
 
             <div class="fl w-100 mt3">

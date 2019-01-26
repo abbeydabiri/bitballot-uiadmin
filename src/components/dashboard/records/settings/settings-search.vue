@@ -104,7 +104,6 @@
 				app.search.skip = app.search.page-1;
 
 				HTTP.post(app.url+'/search', app.search,{withCredentials: true}).then((response) => {
-					console.log(response.data.Body)
 					if (response.data.Body !== null ) {
 						app.recordList = response.data.Body
 					}

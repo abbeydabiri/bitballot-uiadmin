@@ -33,31 +33,24 @@
 							<span @click="searchRecords" class="oi bg-green white pv1 b db" data-glyph="magnifying-glass"></span>
 						</td>
 						<td class="">
-							<input type="text" v-model="search.filter.code" placeholder="Code" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.workflow" placeholder="Status" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
 						<td class="">
-							<input type="text" v-model="search.title" placeholder="Title" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.proposal" placeholder="Proposal" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
 						<td class="">
-							<input type="text" v-model="search.filter.owner" placeholder="Owner" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.position" placeholder="Position" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
 						<td class="">
-							<input type="text" v-model="search.filter.partner" placeholder="Partner" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
-						</td>
-						<td class="">
-							<input type="text" v-model="search.filter.workflow" placeholder="Workflow" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
-						</td>
-						<td class="">
-							<input type="text" disabled v-model="search.filter.updatedate" placeholder="Updatedate" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.profile" placeholder="Voters" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
 					</tr>
 					<tr class="tl bg-black white">
-						<td class="pa2 "></td>
-						<td class="pa2 ">Code</td>
-						<td class="pa2 ">Title</td>
-						<td class="pa2 ">Owner</td>
-						<td class="pa2 ">Partner</td>
-						<td class="pa2 ">Workflow</td>
+						<td class="pa2 w2"></td>
+						<td class="pa2 w4">Status</td>
+						<td class="pa2 ">Proposal</td>
+						<td class="pa2 ">Position</td>
+						<td class="pa2 ">Voters</td>
 						<td class="pa2 ">Updated</td>
 					</tr>
 				</template>
@@ -67,13 +60,12 @@
 							<router-link data-glyph="eye" class="f6 oi br-pill bg-green hover-bg-dark-green ph1 pt1 near-white" :to="{name:'voters-view',params:{id:voter.ID}}" ></router-link>
 						</td>
 						<td class=" pa2"> 
-							<span class="f7">#{{index+1}} -</span> {{voter.Code}}
+							<span class="f7">#{{index+1}} -</span> {{voter.Workflow}}
 						</td>
-						<td class=" pa2 f7">{{voter.Title}}</td>
-						<td class=" pa2 f7">{{voter.Owner}}</td>
-						<td class=" pa2 f7">{{voter.Partner}}</td>
-						<td class=" pa2 f7">{{voter.Workflow}}</td>
-						<td class=" pa2 f7">{{voter.Updatedate}}</td>
+						<td class=" pa2 f7">{{voter.Proposal}}</td>
+						<td class=" pa2 f7">{{voter.Position}}</td>
+						<td class=" pa2 f7">{{voter.Voter}}</td>
+						<td class=" pa2 f7">{{ dateTimeConvert(voter.Updatedate) }}</td>
 					</tr>
 				</template>
 			</table-display>
@@ -87,6 +79,7 @@
 
 <script type="text/javascript">
 	import {HTTP} from "@/common"
+	import {dateTimeConvert} from "@/common"
 	import tableDisplay from "@/components/dashboard/tableDisplay"
 
 	export default {
@@ -97,6 +90,7 @@
 		created() {this.searchRecords()},
 		components: { tableDisplay },
 		methods: {
+			dateTimeConvert,
 			searchRecords() {
 				const app = this 
 				app.isSearch = true
@@ -104,7 +98,7 @@
 				app.search.skip = app.search.page-1;
 
 				HTTP.post(app.url+'/search', app.search,{withCredentials: true}).then((response) => {
-					console.log(response.data.Body)
+					
 					if (response.data.Body !== null ) {
 						app.recordList = response.data.Body
 					}

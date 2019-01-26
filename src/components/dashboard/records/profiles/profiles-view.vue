@@ -19,9 +19,9 @@
             <span class="oi" data-glyph="person"></span>
             <label class="dn dib-ns">Personal</label>
           </span>
-          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.documentationClass" @click="toggleTab('documentation')">
+          <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.documentationsClass" @click="toggleTab('documentations')">
             <span class="oi" data-glyph="briefcase"></span>
-            <label class="dn dib-ns">Documentation</label>
+            <label class="dn dib-ns">Documentations</label>
           </span>
           <span class="w-20 tc pointer dim pa3 bl b--white-40 " :class="tabProps.proposalsClass" @click="toggleTab('proposals')">
             <span class="oi" data-glyph="document"></span>
@@ -84,60 +84,37 @@
                   </div>
 
                   <div class="fl w-100 bt b--near-white"></div>
-                    <div class="fl mv2 w-100 w-25-l pa1">
-                      <label class="db fw4 lh-copy f6 black">Phone 1 </label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Phone}}</div>
-                    </div>
+                
+                  <div class="fl mv2 w-100 w-25-l pa1">
+                    <label class="db fw4 lh-copy f6 black">Mobile</label>
+                    <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Mobile}}</div>
+                  </div>
 
-                    <div class="fl mv2 w-100 w-25-l pa1">
-                      <label class="db fw4 lh-copy f6 black">Phone 2 </label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Phone2}}</div>
-                    </div>
+                  <div class="fl mv2 w-100 w-75-l pa1">
+                    <label class="db fw4 lh-copy f6 black">Email Address</label>
+                    <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Email}}</div>
+                  </div>
+
+                  <div class="fl mv2 w-40 pa1">
+                    <label class="db fw4 lh-copy f6 black">Street</label>
+                    <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Street}}</div>
+                  </div>
+
+                  <div class="fl mv2 w-20 pa1">
+                    <label class="db fw4 lh-copy f6 black">City</label>
+                    <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.City}}</div>
+                  </div>
+
+                  <div class="fl mv2 w-20 pa1">
+                    <label class="db fw4 lh-copy f6 black">State</label>
+                    <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.State}}</div>
+                  </div>
                   
-                    <div class="fl mv2 w-100 w-50-l pa1">
-                      <label class="db fw4 lh-copy f6 black">Email Address</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Email}}</div>
-                    </div>
-
-
-                    <div class="fl mv2 w-100 pa1">
-                      <label class="db fw4 lh-copy f6 black">Home Address</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 h3 overflow-scroll">&nbsp;{{record.Address}}</div>
-                    </div>
+                  <div class="fl mv2 w-20 pa1">
+                    <label class="db fw4 lh-copy f6 black">Country</label>
+                    <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Country}}</div>
                   </div>
-
-
-                  <div class="fl w-100 bt b--near-white"></div>
-                    <div class="fl mv2 w-100 w-25-l pa1">
-                      <label class="db fw4 lh-copy f6 black">Mobile</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Mobile}}</div>
-                    </div>
-
-                    <div class="fl mv2 w-100 w-75-l pa1">
-                      <label class="db fw4 lh-copy f6 black">Email Address</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Email}}</div>
-                    </div>
-
-                    <div class="fl mv2 w-40 pa1">
-                      <label class="db fw4 lh-copy f6 black">Street</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Street}}</div>
-                    </div>
-
-                    <div class="fl mv2 w-20 pa1">
-                      <label class="db fw4 lh-copy f6 black">City</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.City}}</div>
-                    </div>
-
-                    <div class="fl mv2 w-20 pa1">
-                      <label class="db fw4 lh-copy f6 black">State</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.State}}</div>
-                    </div>
-                    
-                    <div class="fl mv2 w-20 pa1">
-                      <label class="db fw4 lh-copy f6 black">Country</label>
-                      <div class="pa2 ba b--white-50 br2 bg-near-white w-100 ">&nbsp;{{record.Country}}</div>
-                    </div>
-                  </div>
+                </div>
               
 
           </div>
@@ -213,17 +190,17 @@
           default:
             this.tabProps = {personClass:"bg-gray white",personShow:true}
             break;
-          case "occupation":
-            this.tabProps = {occupationClass:"bg-gray white",occupationShow:true}
+          case "documentations":
+            this.tabProps = {documentationsClass:"bg-gray white",documentationsShow:true}
             break;
-          case "ecclesia":
-            this.tabProps = {ecclesiaClass:"bg-gray white",ecclesiaShow:true}
+          case "proposals":
+            this.tabProps = {proposalsClass:"bg-gray white",proposalsShow:true}
             break;
-          case "designation":
-            this.tabProps = {designationClass:"bg-gray white",designationShow:true}
+          case "positions":
+            this.tabProps = {positionsClass:"bg-gray white",positionsShow:true}
             break;
-          case "groupunit":
-            this.tabProps = {groupunitClass:"bg-gray white",groupunitShow:true}
+          case "settings":
+            this.tabProps = {settingsClass:"bg-gray white",settingsShow:true}
             break;
         }
       }

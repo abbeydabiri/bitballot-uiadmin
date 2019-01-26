@@ -69,12 +69,7 @@
             notifications:[],
             tablename:"",
             record:{File:"",Bucket:""},
-            tableList:[
-            "Activations","Albums","Attendances","Blacklists","Blogs","Campaigns","Categorys",
-            "Documentations","Documents","Domains","Followers","Groups","Hits","Medias","Members",
-            "Messages","Newsletters","Permissions","Posts","Printers","Profiles","Reports","Roles",
-            "Seocontents","Services","Settings","Sms","Smtp","Ssh","Units","Users","Wings"
-            ], 
+            tableList:[ "Candidates", "Documents", "Positions", "Profiles", "Proposals", "Settings", "Users", "Voters", "Votes"]
         }},
         components: {
             "notify": notify,

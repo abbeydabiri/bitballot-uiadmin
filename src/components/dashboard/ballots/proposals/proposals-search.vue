@@ -33,31 +33,25 @@
 							<span @click="searchRecords" class="oi bg-green white pv1 b db" data-glyph="magnifying-glass"></span>
 						</td>
 						<td class="">
-							<input type="text" v-model="search.filter.code" placeholder="Code" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.workflow" placeholder="Status" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
 						<td class="">
-							<input type="text" v-model="search.title" placeholder="Title" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.title" placeholder="Proposal" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
 						<td class="">
-							<input type="text" v-model="search.filter.owner" placeholder="Owner" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.opendateday" placeholder="Open Date" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
 						<td class="">
-							<input type="text" v-model="search.filter.partner" placeholder="Partner" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
+							<input type="text" v-model="search.filter.enddateday" placeholder="End Date" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
 						</td>
-						<td class="">
-							<input type="text" v-model="search.filter.workflow" placeholder="Workflow" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
-						</td>
-						<td class="">
-							<input type="text" disabled v-model="search.filter.updatedate" placeholder="Updatedate" class="ba b--black-10 f7 fl tracked bg-white black pa1 w-100 br1">
-						</td>
+						
 					</tr>
 					<tr class="tl bg-black white">
-						<td class="pa2 "></td>
-						<td class="pa2 ">Code</td>
-						<td class="pa2 ">Title</td>
-						<td class="pa2 ">Owner</td>
-						<td class="pa2 ">Partner</td>
-						<td class="pa2 ">Workflow</td>
+						<td class="pa2 w2"></td>
+						<td class="pa2 w4">Status</td>
+						<td class="pa2 ">Proposal</td>
+						<td class="pa2 ">Open Date</td>
+						<td class="pa2 ">End Date</td>
 						<td class="pa2 ">Updated</td>
 					</tr>
 				</template>
@@ -67,13 +61,15 @@
 							<router-link data-glyph="eye" class="f6 oi br-pill bg-green hover-bg-dark-green ph1 pt1 near-white" :to="{name:'proposals-view',params:{id:proposal.ID}}" ></router-link>
 						</td>
 						<td class=" pa2"> 
-							<span class="f7">#{{index+1}} -</span> {{proposal.Code}}
+							<span class="f7">#{{index+1}} -</span> {{proposal.Workflow}}
 						</td>
+
 						<td class=" pa2 f7">{{proposal.Title}}</td>
-						<td class=" pa2 f7">{{proposal.Owner}}</td>
-						<td class=" pa2 f7">{{proposal.Partner}}</td>
-						<td class=" pa2 f7">{{proposal.Workflow}}</td>
-						<td class=" pa2 f7">{{proposal.Updatedate}}</td>
+						
+						<td class="ph2 f7">{{ proposal.OpenDateDay}} <small class="db">({{ dateTimeConvert(proposal.OpenDate) }})</small> </td>
+						<td class="ph2 f7">{{ proposal.EndDateDay}}  <small class="db">({{ dateTimeConvert(proposal.EndDate) }})</small> </td>
+
+						<td class=" pa2 f7">{{ dateTimeConvert(proposal.Updatedate) }}</td>
 					</tr>
 				</template>
 			</table-display>
@@ -87,6 +83,7 @@
 
 <script type="text/javascript">
 	import {HTTP} from "@/common"
+	import {dateTimeConvert} from "@/common"
 	import tableDisplay from "@/components/dashboard/tableDisplay"
 
 	export default {
@@ -95,8 +92,9 @@
 			search: {text: "", field: "Title", limit: 20, page:1, skip: 0, filter:{} },
 		}},
 		created() {this.searchRecords()},
-		components: { tableDisplay },
+		components: { tableDisplay,  },
 		methods: {
+			dateTimeConvert,
 			searchRecords() {
 				const app = this 
 				app.isSearch = true
@@ -104,7 +102,7 @@
 				app.search.skip = app.search.page-1;
 
 				HTTP.post(app.url+'/search', app.search,{withCredentials: true}).then((response) => {
-					console.log(response.data.Body)
+					
 					if (response.data.Body !== null ) {
 						app.recordList = response.data.Body
 					}

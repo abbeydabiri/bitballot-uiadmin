@@ -43,10 +43,10 @@
     ],
 
     ballots: [
-      {to:"/admin/ballots/voters",icon:"cog",title:"Voters"},
-      {to:"/admin/ballots/candidates",icon:"cog",title:"Candidates"},
-			{to:"/admin/ballots/positions",icon:"box",title:"Positions"},
-			{to:"/admin/ballots/proposals",icon:"people",title:"Proposals"},
+      {to:"/admin/ballots/voters",icon:"people",title:"Voters"},
+      {to:"/admin/ballots/candidates",icon:"people",title:"Candidates"},
+			{to:"/admin/ballots/positions",icon:"tag",title:"Positions"},
+			{to:"/admin/ballots/proposals",icon:"document",title:"Proposals"},
     ],
 
     reports: [
@@ -56,6 +56,7 @@
    
     security: [
       {to:'/admin/security/users',icon:'people',title:'Users'},
+      {to:'/admin/security/database',icon:'cog',title:'Database'},
     ],
   }
   export default {
