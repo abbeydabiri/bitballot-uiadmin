@@ -99,7 +99,19 @@
                 }).catch((e) => { console.log(e) })
 			},
 			sendToBlockchain () {
-				console.log('Send to Blockchain');
+				const app = this;
+
+				HTTP.post("/api/eth/proposal", {id:app.$route.params.id}, {withCredentials: true}).then((response) => {
+					this.notifications.push(response.data)
+					setTimeout(checkRedirect(response.data),1500)
+
+					// this.record = response.data.Body
+					// if(response.data.Body.ID == id){
+					//     app.isFound = true
+					// }
+					// console.log('Send to Blockchain');
+				}).catch((e) => { console.log(e) })
+				
 			}			
 		}
 	}

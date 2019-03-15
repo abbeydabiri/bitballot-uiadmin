@@ -20,7 +20,7 @@
 				</div>
 				<div class="black fr w-50 dib tr h2 f7">
 					<span class="bg-black white pa2 br1 fr">
-						<input type="number" class="w3 black bn tc br2 bg-white " v-model="search.limit">
+						<input type="number" class="w3 black bn tc br2 bg-white " v-model.number="search.limit">
 						records
 					</span>
 				</div>
